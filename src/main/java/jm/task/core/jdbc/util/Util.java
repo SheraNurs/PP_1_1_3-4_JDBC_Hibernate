@@ -25,7 +25,7 @@ public class Util {
 
     public static Connection getConnection() {
         try {
-            return connection = DriverManager.getConnection(URL,USERNAME, PASSWORD);
+            return connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -44,7 +44,7 @@ public class Util {
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
                 settings.put(Environment.SHOW_SQL, true);
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                settings.put(Environment.HBM2DDL_AUTO, "update");
+                settings.put(Environment.HBM2DDL_AUTO, "create-drop");
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(User.class);
